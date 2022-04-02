@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import ec.edu.uce.modelo.Vuelo;
+import ec.edu.uce.modelo.VueloSencillo;
 
 public interface IVueloRepo {
 

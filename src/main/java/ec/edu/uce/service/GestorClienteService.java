@@ -1,13 +1,16 @@
 package ec.edu.uce.service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ec.edu.uce.modelo.Vuelo;
+import ec.edu.uce.modelo.VueloSencillo;
 
 @Service
 public class GestorClienteService implements IGestorClienteService {
@@ -22,11 +25,13 @@ public class GestorClienteService implements IGestorClienteService {
 		// TODO Auto-generated method stub
 		List<Vuelo> lista=this.vueloService.buscarVuelos(Destino, Origen, fechaVuelo);
 		
+				
+		List<Vuelo>lista2=lista.parallelStream().filter( vuelo-> vuelo.getEstado()== "Disponible").collect(Collectors.toList());
+	
 		
-		lista.parallelStream().filter( vuelo-> vuelo.getEstado()== "Disponible");
 		
 		
-		return null;
+		return lista2;
 	}
 
 	@Override

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ec.edu.uce.modelo.Vuelo;
+import ec.edu.uce.modelo.VueloSencillo;
 import ec.edu.uce.repository.IVueloRepo;
 
 @Service
@@ -54,5 +55,7 @@ public class VueloServiceImpl implements IVueloService {
 		// TODO Auto-generated method stub
 		return this.vueloRepo.buscarVuelos(destino, origen, fechaDeVuelo);
 	}
+
+	
 
 }

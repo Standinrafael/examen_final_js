@@ -11,8 +11,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-
 import ec.edu.uce.modelo.Vuelo;
+import ec.edu.uce.modelo.VueloSencillo;
 
 @Repository
 @Transactional
@@ -20,7 +20,7 @@ public class VueloRepoImpl implements IVueloRepo {
 
 	@PersistenceContext
 	private EntityManager entityManager;
-	
+
 	@Override
 	public void insertarVuelo(Vuelo vuelo) {
 		// TODO Auto-generated method stub
@@ -45,7 +45,7 @@ public class VueloRepoImpl implements IVueloRepo {
 	public void eliminarVueloPorId(Integer id) {
 		// TODO Auto-generated method stub
 
-		Vuelo vueloEliminar=this.buscarVueloPorId(id);
+		Vuelo vueloEliminar = this.buscarVueloPorId(id);
 		this.entityManager.remove(vueloEliminar);
 	}
 
@@ -57,7 +57,7 @@ public class VueloRepoImpl implements IVueloRepo {
 					Vuelo.class);
 			miQuery.setParameter("numero", numero);
 			return miQuery.getSingleResult();
-		}catch(NoResultException e) {
+		} catch (NoResultException e) {
 			return null;
 		}
 	}
@@ -65,9 +65,10 @@ public class VueloRepoImpl implements IVueloRepo {
 	@Override
 	public List<Vuelo> buscarVuelos(String destino, String origen, LocalDateTime fechaDeVuelo) {
 		// TODO Auto-generated method stub
-		TypedQuery<Vuelo> miQuery = this.entityManager.createQuery("select v from Vuelo v where v.destino=:destino and v.origen=:origen and v.fechaVuelo=:fechaVuelo",
+		TypedQuery<Vuelo> miQuery = this.entityManager.createQuery(
+				"select v from Vuelo v where v.destino=:destino and v.origen=:origen and v.fechaVuelo=:fechaVuelo",
 				Vuelo.class);
-		miQuery.setParameter("destino",destino);
+		miQuery.setParameter("destino", destino);
 		miQuery.setParameter("origen", origen);
 		miQuery.setParameter("fechaVuelo", fechaDeVuelo);
 		return miQuery.getResultList();

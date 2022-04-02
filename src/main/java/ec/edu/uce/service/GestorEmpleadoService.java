@@ -16,7 +16,7 @@ public class GestorEmpleadoService implements IGestorEmpleadoService {
 	private ICompraPasajeService pasajeService;
 	
 	@Override
-	public void realizarCheckIn(String numero) {
+	public CompraPasaje realizarCheckIn(String numero) {
 		// TODO Auto-generated method stub
 		
 		try {
@@ -27,8 +27,11 @@ public class GestorEmpleadoService implements IGestorEmpleadoService {
 			
 			this.pasajeService.actualizarPasaje(pasaje);
 			
+			return pasaje;
+			
 		}catch(NullPointerException e) {
 			LOGGER.info("No se encuentra el pasaje");
+			return null;
 		}
 	}
 
