@@ -13,33 +13,33 @@
 
 <body>
 	<div class=container my-5>
-	<h3>Actualizar CHECK IN</h3>
-	<div class="card-body"> 
+		<h3>Actualizar CHECK IN</h3>
+		<div class="card-body">
 
-		<!--Colocar la url completa, verbo a usar,  nombre del objeto que recibe para enviarle el modelo-->
-		<!--No hay soporte para el put, se coloca th -->
-		<form action="#" th:action="@{/vuelos/actualizar/{numeroPasaje}(numeroPasaje=${cita.numero})}"
-			th:object="${pasaje}" th:method="put">
-			table>
-		<!--Fila del ID-->
-		<tr>
-			<td th:text="'ID:'" />
-			<td th:text="${pasaje.id}" />
-		</tr>
-		<!--Fila del Nombre-->
-		<tr>
-			<td th:text="'Numero:'" />
-			<td th:text="${pasaje.numero}" />
-		</tr>
-		<!--Fila del Apellido-->
-		<tr>
-			<td th:text="'Estado:'" />
-			<td th:text="${pasaje.estado}" />
-		</tr>
-	</table>
-			<input type="submit" value="Actualizar">
-		</form>
-	</div>
+			<!--Colocar la url completa, verbo a usar,  nombre del objeto que recibe para enviarle el modelo-->
+			<!--No hay soporte para el put, se coloca th -->
+			<form action="#" th:action="@{/vuelos/actualizar/{numeroPasaje}(numeroPasaje=${cita.numero})}"
+				th:object="${pasaje}" th:method="put">
+				<table>
+					
+					<tr>
+						<td th:text="'ID:'" />
+						<td th:text="${pasaje.id}" />
+					</tr>
+					
+					<tr>
+						<td th:text="'Numero:'" />
+						<td th:text="${pasaje.numero}" />
+					</tr>
+					
+					<tr>
+						<td th:text="'Estado:'" />
+						<td th:text="${pasaje.estado}" />
+					</tr>
+				</table>
+				<input type="submit" value="Actualizar">
+			</form>
+		</div>
 	</div>
 </body>
 

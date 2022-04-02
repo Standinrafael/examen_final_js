@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device'width,initial-scale=1">
+	<meta http-equiv="x-ua-compatible">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+
+
+<body>
+	<div class=container my-5>
+	<h3>Actualizar Vuelo</h3>
+	<div class="card-body"> 
+
+		<!--Colocar la url completa, verbo a usar,  nombre del objeto que recibe para enviarle el modelo-->
+		<!--No hay soporte para el put, se coloca th -->
+		<form action="#" th:action="@{/vuelos/actualizarVuelo/{numeroVuelo}(numeroCita=${vuelo.numero})}"
+			th:object="${vuelo}" th:method="put">
+			<table>
+
+			<table>
+					
+					<tr>
+						<td th:text="'Asientos Ocupados'" />
+						<td th:text="${vuelo.asientosOcupados}" />
+					</tr>
+					
+					<tr>
+						<td th:text="'Asientos Disponibles:'" />
+						<td th:text="${vuelo.asientosDisponibles}" />
+					</tr>
+					
+				</table>
+			<input type="submit" value="Actualizar">
+		</form>
+	</div>
+	</div>
+</body>
+
+
+
+</html>
